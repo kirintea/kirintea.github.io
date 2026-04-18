@@ -1,0 +1,79 @@
+[
+  {
+    "name": "Dan Arnoux",
+    "role": "Engineer",
+    "desc": "Engineer and researcher-in-training, sharing research notes, technical essays, and practical engineering workflows.",
+    "avatar": "DanArnoux.webp",
+    "link": "https://danarnoux.com"
+  },
+  {
+    "name": "uiuiuiui8",
+    "role": "Designer",
+    "desc": "AI model training and 3D printing research.",
+    "avatar": "uiuiuiui8.jpg",
+    "link": "#"
+  },
+  {
+    "name": "licyk_",
+    "role": "Bilibili UP",
+    "desc": "Bilibili UP, specializing in AI painting, model training, integration package production, and Linux tool development.",
+    "avatar": "licyk_.webp",
+    "link": "https://space.bilibili.com/46497516"
+  },
+  {
+    "name": "今宵鳩鳴",
+    "role": "Bilibili UP",
+    "desc": "Specializing in AI painting tutorials, model training (LoRA/secondary creation models), MMD creation, game live broadcasts & highlights, and open-source resource sharing (training tools, workflow, model files).",
+    "avatar": "jx.jpg",
+    "link": "https://space.bilibili.com/14695635"
+  },
+  {
+    "name": "KohakuBlueleaf",
+    "role": "AI R&D",
+    "desc": "AI Researcher & Developer | Taiwanese undergraduate from NTHU, focused on generative models, PEFT, text-image dataset and MLR; creator of LyCORIS and related Stable Diffusion tools.",
+    "avatar": "KohakuBlueleaf.webp",
+    "link": "https://github.com/KohakuBlueleaf"
+  },
+  {
+    "name": "Eugeoter",
+    "role": "AI R&D",
+    "desc": "AI Researcher & Developer | CUHK | Image processing & diffusion models | ControlNeXt author | SVD / Animate Anyone / ControlNet / LoRA | waifuset | HuggingFace & Civitai creator",
+    "avatar": "Eugeoter.jpg",
+    "link": "https://github.com/Eugeoter"
+  },
+  {
+    "name": "风吟Chenkin",
+    "role": "CKN Founder",
+    "desc": "Civitai Top Creator | CKN Open-Source Community Founder | Stable Diffusion | AIGC Model Development | Anime Generation",
+    "avatar": "fengyin_chenkin.webp",
+    "link": "https://space.bilibili.com/351205898"
+  },
+  {
+    "name": "ONTONOUS",
+    "role": "researcher",
+    "desc": "AI researcher, KYO",
+    "avatar": "KYO.jpg",
+    "link": "https://huggingface.co/ONTONOUS"
+  },
+  {
+    "name": "防御老猫",
+    "role": "Anime",
+    "desc": "Anime-themed edits and emotional short-form videos.",
+    "avatar": "fangyulaomao.jpg",
+    "link": "https://space.bilibili.com/3546757950605988"
+  },
+  {
+    "name": "EEE",
+    "role": "artist",
+    "desc": "AI artist",
+    "avatar": "eee.jpg",
+    "link": "https://space.bilibili.com/25974406"
+  },
+  {
+    "name": "An25",
+    "role": "game developer",
+    "desc": "Independent game developer | AI artist | pixiv | rimworld",
+    "avatar": "an25.jpg",
+    "link": "https://space.bilibili.com/2461560"
+  }
+]

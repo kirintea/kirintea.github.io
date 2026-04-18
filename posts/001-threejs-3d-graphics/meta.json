@@ -1,0 +1,13 @@
+{
+  "id": 1,
+  "date": "2026-04-15",
+  "tags": ["WebGL", "Three.js", "3D"],
+  "title": {
+    "en": "Exploring 3D Graphics with Three.js",
+    "cn": "使用 Three.js 探索 3D 图形"
+  },
+  "excerpt": {
+    "en": "Dive into the world of 3D graphics using Three.js. Learn how to create stunning visual effects and interactive 3D scenes for the web.",
+    "cn": "深入了解 Three.js 的 3D 图形世界。学习如何为 Web 创建令人惊叹的视觉效果和交互式 3D 场景。"
+  }
+}

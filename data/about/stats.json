@@ -1,0 +1,24 @@
+{
+  "stats": [
+    {
+      "label": "Projects",
+      "count": 42,
+      "icon": "github"
+    },
+    {
+      "label": "Commits",
+      "count": 1024,
+      "icon": "commits"
+    },
+    {
+      "label": "Stars",
+      "count": 1337,
+      "icon": "stars"
+    },
+    {
+      "label": "Followers",
+      "count": 256,
+      "icon": "followers"
+    }
+  ]
+}

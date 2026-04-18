@@ -19,9 +19,80 @@
 
     <section id="links" class="links-section">
         <h1>Links</h1>
-        <!-- 友情链接内容展示 -->
+        <p class="links-subtitle">Friends & Projects</p>
+        
+        <div class="links-container">
+            <!-- 朋友区域 -->
+            <div class="friends-section">
+                <h2 class="section-title">Friends</h2>
+                <div class="friends-grid" id="friendsGrid"></div>
+            </div>
+
+            <!-- 项目区域 -->
+            <div class="projects-section">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid" id="projectsGrid"></div>
+            </div>
+        </div>
     </section>
 
     <script src="../js/app.js"></script>
+    <script>
+        // 渲染朋友卡片
+        function renderFriends(friendsData) {
+            const grid = document.getElementById('friendsGrid');
+            
+            grid.innerHTML = friendsData.map(friend => `
+                <a href="${friend.link}" class="friend-link" target="_blank" rel="noopener">
+                    <div class="friend-card">
+                        <div class="friend-header">
+                            <img src="../data/links_assets/${friend.avatar}" alt="${friend.name}" class="friend-avatar">
+                            <div class="friend-info">
+                                <h3 class="friend-name">${friend.name}</h3>
+                                <p class="friend-role">${friend.role}</p>
+                            </div>
+                        </div>
+                        <p class="friend-desc">${friend.desc}</p>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // 渲染项目卡片
+        function renderProjects(projectsData) {
+            const grid = document.getElementById('projectsGrid');
+            grid.innerHTML = projectsData.map(project => `
+                <div class="project-card">
+                    <h3 class="project-title">${project.name}</h3>
+                    <p class="project-desc">${project.desc}</p>
+                    <div class="project-tags">
+                        ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+                    </div>
+                    <a href="${project.link}" class="project-link" target="_blank" rel="noopener">View Project →</a>
+                </div>
+            `).join('');
+        }
+
+        // 从JSON加载数据
+        async function loadData() {
+            try {
+                const [friendsResponse, projectsResponse] = await Promise.all([
+                    fetch('../data/links/friends.json'),
+                    fetch('../data/links/projects.json')
+                ]);
+                
+                const friendsData = await friendsResponse.json();
+                const projectsData = await projectsResponse.json();
+                
+                renderFriends(friendsData);
+                renderProjects(projectsData);
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
+        }
+
+        // 初始化
+        loadData();
+    </script>
 </body>
 </html>

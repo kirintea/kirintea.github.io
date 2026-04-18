@@ -1,0 +1,12 @@
+{
+  "title": "Links Page Resources",
+  "description": "All data and assets for the Friends & Projects page",
+  "version": "1.0.0",
+  "data": {
+    "friends": "friends.json",
+    "projects": "projects.json"
+  },
+  "assets": {
+    "images": "../links_assets/"
+  }
+}

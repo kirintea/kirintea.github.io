@@ -1,0 +1,13 @@
+{
+  "id": 2,
+  "date": "2026-04-10",
+  "tags": ["JavaScript", "Canvas", "Animation"],
+  "title": {
+    "en": "Advanced Canvas Animation Techniques",
+    "cn": "高级 Canvas 动画技术"
+  },
+  "excerpt": {
+    "en": "Master advanced canvas animation techniques including particle systems, motion blur, and frame interpolation for smooth visual effects.",
+    "cn": "掌握高级 Canvas 动画技术，包括粒子系统、运动模糊和帧插值，实现流畅的视觉效果。"
+  }
+}

@@ -1,0 +1,252 @@
+/* links.css */
+.links-section {
+    padding: 120px 20px 80px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f0f1a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.links-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridMove 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+.links-section h1 {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 10px;
+    letter-spacing: 4px;
+    text-shadow: 
+        0 0 10px rgba(6, 182, 212, 0.5),
+        0 0 30px rgba(6, 182, 212, 0.3);
+}
+
+.links-subtitle {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(6, 182, 212, 0.8);
+    margin-bottom: 50px;
+    letter-spacing: 4px;
+    font-family: 'Courier New', monospace;
+}
+
+.links-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(6, 182, 212, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 24px;
+    font-family: 'Courier New', monospace;
+    padding-left: 4px;
+}
+
+.friends-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    row-gap: 32px;
+    margin-bottom: 60px;
+}
+
+.friend-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    min-height: 180px;
+}
+
+.friend-card:hover {
+    background: linear-gradient(145deg, rgba(6, 182, 212, 0.1), rgba(79, 172, 254, 0.05));
+    border-color: rgba(6, 182, 212, 0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(6, 182, 212, 0.15);
+}
+
+.friend-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.friend-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(6, 182, 212, 0.4);
+    transition: all 0.3s ease;
+}
+
+.friend-card:hover .friend-avatar {
+    border-color: rgba(6, 182, 212, 0.8);
+    transform: scale(1.05);
+}
+
+.friend-info {
+    flex: none;
+    min-width: 0;
+}
+
+.friend-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 4px;
+}
+
+.friend-role {
+    font-size: 0.85rem;
+    color: rgba(6, 182, 212, 0.7);
+    margin: 0;
+    font-family: 'Courier New', monospace;
+}
+
+.friend-desc {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.friend-link {
+    display: block;
+    text-decoration: none;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.project-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    background: linear-gradient(145deg, rgba(6, 182, 212, 0.1), rgba(79, 172, 254, 0.05));
+    border-color: rgba(6, 182, 212, 0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(6, 182, 212, 0.15);
+}
+
+.project-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 12px;
+}
+
+.project-desc {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin: 0 0 16px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tag {
+    padding: 4px 12px;
+    background: rgba(6, 182, 212, 0.1);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: rgba(6, 182, 212, 0.9);
+    font-family: 'Courier New', monospace;
+}
+
+.project-link {
+    display: block;
+    margin-top: 16px;
+    padding: 10px 20px;
+    background: linear-gradient(145deg, rgba(6, 182, 212, 0.2), rgba(79, 172, 254, 0.1));
+    border: 1px solid rgba(6, 182, 212, 0.4);
+    border-radius: 6px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-family: 'Courier New', monospace;
+}
+
+.project-link:hover {
+    background: linear-gradient(145deg, rgba(6, 182, 212, 0.4), rgba(79, 172, 254, 0.2));
+    border-color: rgba(6, 182, 212, 0.7);
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.2);
+}
+
+
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .links-section h1 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+    
+    .links-subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+    
+    .friends-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .friend-card, .project-card {
+        padding: 20px;
+    }
+}
