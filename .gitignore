@@ -8,6 +8,7 @@ Desktop.ini
 
 .vscode/
 .idea/
+.worktrees/
 
 *.log
 

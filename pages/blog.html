@@ -21,6 +21,11 @@
             <div class="blog-header">
                 <h1 class="blog-title">Blog Posts</h1>
                 <div class="blog-controls">
+                    <div class="view-switcher" aria-label="Blog layout switcher">
+                        <button class="view-btn active" data-view="cards" type="button">Cards</button>
+                        <button class="view-btn" data-view="journey" type="button">Line</button>
+                    </div>
+                    <button class="sort-btn" id="sort-toggle-btn" type="button" data-order="desc">Newest First</button>
                     <div class="language-switcher">
                         <button class="lang-btn active" data-lang="en">EN</button>
                         <button class="lang-btn" data-lang="cn">中文</button>
@@ -34,7 +39,7 @@
                 </div>
             </div>
 
-            <div class="blog-posts" id="blog-posts">
+            <div class="blog-posts cards-view" id="blog-posts">
             </div>
         </div>
     </section>
