@@ -193,6 +193,18 @@ class DameDaneParticle {
     this.mx = 0;
     /** 鼠标位置 Y */
     this.my = 0;
+    this.lastMx = 0;
+    this.lastMy = 0;
+    this.pointerVelocity = 0;
+    this.lastPointerMoveAt = 0;
+    this.telemetry = {
+      input: 'MOUSE / IDLE',
+      field: 'PARTICLE GRID / STABLE',
+      lock: 'SEARCHING',
+      energy: 12,
+      active: false
+    };
+    this.onTelemetryChange = null;
 
     // 初始化标记
     this.hasInit = false;
@@ -235,8 +247,18 @@ class DameDaneParticle {
     /** 鼠标移动监听函数 */
     this.$changeMxMy = function(e) {
       const cRect = canvas.getBoundingClientRect();
-      this.mx = e.clientX - cRect.left;
-      this.my = e.clientY - cRect.top;
+      const nextMx = e.clientX - cRect.left;
+      const nextMy = e.clientY - cRect.top;
+      const dx = nextMx - this.mx;
+      const dy = nextMy - this.my;
+      const velocity = Math.sqrt(dx * dx + dy * dy);
+
+      this.lastMx = this.mx;
+      this.lastMy = this.my;
+      this.mx = nextMx;
+      this.my = nextMy;
+      this.pointerVelocity = velocity;
+      this.lastPointerMoveAt = performance.now();
     }.bind(this);
     canvas.addEventListener("mousemove", this.$changeMxMy);
 
@@ -365,6 +387,7 @@ class DameDaneParticle {
     this.hasDraw = true;
     const w = this.canvasEle.width, h = this.canvasEle.height;
     this.ctx.clearRect(0, 0, w, h);
+    this.updateTelemetry();
     
     var self = this;
     this.PointArr.forEach(
@@ -373,6 +396,7 @@ class DameDaneParticle {
         point.render();
       }
     );
+    this.pointerVelocity *= 0.92;
     requestAnimationFrame(function() { self._Draw2Canvas(); });
   }
 
@@ -407,6 +431,42 @@ class DameDaneParticle {
   }
 
   /** 预销毁当前实例，销毁对象前请通过此方法解绑监听事件与清除画布 */
+  updateTelemetry() {
+    const now = performance.now();
+    const active = now - this.lastPointerMoveAt < 180;
+    const energy = Math.max(12, Math.min(99, Math.round(this.pointerVelocity * 3.5)));
+
+    let lock = 'SEARCHING';
+    let field = 'PARTICLE GRID / STABLE';
+
+    if (active && energy > 70) {
+      lock = 'LOCKED';
+      field = 'PARTICLE GRID / DISTURBED';
+    } else if (active && energy > 30) {
+      lock = 'TRACKING';
+      field = 'PARTICLE GRID / UNSTABLE';
+    } else if (active) {
+      lock = 'SEMI-LOCKED';
+      field = 'PARTICLE GRID / RECOVERING';
+    }
+
+    this.telemetry = {
+      input: active ? 'MOUSE / ACTIVE' : 'MOUSE / IDLE',
+      field,
+      lock,
+      energy,
+      active
+    };
+
+    if (typeof this.onTelemetryChange === 'function') {
+      this.onTelemetryChange(this.telemetry);
+    }
+  }
+
+  getTelemetry() {
+    return this.telemetry;
+  }
+
   PreDestory(callback) {
     this.canvasEle.removeEventListener('mousemove', this.$changeMxMy);
     window.removeEventListener('resize', this.$fit);

@@ -162,38 +162,56 @@ function generateGridLines(pointCount, baseRadius) {
     return pts;
 }
 
-function generateEarthPointCloud(totalPointCount) {
-    const mainSphere = generateMainSphere(Math.floor(totalPointCount * 0.40), 150);
-    const latLines = generateLatitudeLines(Math.floor(totalPointCount * 0.15), 150);
-    const lonLines = generateLongitudeLines(Math.floor(totalPointCount * 0.12), 150);
-    const atmosphere = generateAtmosphere(Math.floor(totalPointCount * 0.10), 150);
-    const polarGlow = generatePolarGlow(Math.floor(totalPointCount * 0.08), 150);
-    const clouds = generateClouds(Math.floor(totalPointCount * 0.08), 150);
-    const gridLines = generateGridLines(Math.floor(totalPointCount * 0.07), 150);
+function generateSampleBands(pointCount, baseRadius) {
+    const pts = [];
+    const bands = [
+        { lat: 18, spread: 10, radiusOffset: 4 },
+        { lat: -12, spread: 8, radiusOffset: 6 },
+        { lat: 42, spread: 7, radiusOffset: 5 }
+    ];
 
-    const allPts = [];
-    allPts.push(
-        ...mainSphere,
-        ...latLines,
-        ...lonLines,
-        ...atmosphere,
-        ...polarGlow,
-        ...clouds,
-        ...gridLines
-    );
+    bands.forEach(band => {
+        const count = Math.floor(pointCount / bands.length);
+        for (let i = 0; i < count; i++) {
+            const theta = Math.random() * Math.PI * 2;
+            const lat = (band.lat + (Math.random() - 0.5) * band.spread) * Math.PI / 180;
+            const radius = baseRadius + band.radiusOffset + Math.random() * 3;
+            pts.push(
+                radius * Math.cos(lat) * Math.cos(theta),
+                radius * Math.sin(lat),
+                radius * Math.cos(lat) * Math.sin(theta)
+            );
+        }
+    });
+
+    return pts;
+}
+
+function generateEarthLayeredPointCloud(totalPointCount) {
+    return {
+        core: new Float32Array(generateMainSphere(Math.floor(totalPointCount * 0.36), 150)),
+        atmosphere: new Float32Array(generateAtmosphere(Math.floor(totalPointCount * 0.14), 150)),
+        polarGlow: new Float32Array(generatePolarGlow(Math.floor(totalPointCount * 0.10), 150)),
+        cloudShell: new Float32Array(generateClouds(Math.floor(totalPointCount * 0.10), 150)),
+        grid: new Float32Array(generateGridLines(Math.floor(totalPointCount * 0.10), 150)),
+        sampleBands: new Float32Array(generateSampleBands(Math.floor(totalPointCount * 0.08), 150)),
+        latitudeLines: new Float32Array(generateLatitudeLines(Math.floor(totalPointCount * 0.06), 150)),
+        longitudeLines: new Float32Array(generateLongitudeLines(Math.floor(totalPointCount * 0.06), 150))
+    };
+}
+
+function generateEarthPointCloud(totalPointCount) {
+    const layers = generateEarthLayeredPointCloud(totalPointCount);
+    const merged = [
+        ...layers.core,
+        ...layers.atmosphere,
+        ...layers.polarGlow,
+        ...layers.cloudShell,
+        ...layers.grid
+    ];
 
     const result = new Float32Array(totalPointCount * 3);
-    result.set(allPts.slice(0, totalPointCount * 3));
-
-    let idx = allPts.length;
-    while (idx < totalPointCount * 3) {
-        const theta = Math.random() * Math.PI * 2;
-        const phi = Math.acos(2 * Math.random() - 1);
-        const r = 150 + Math.random() * 10;
-        result[idx++] = r * Math.sin(phi) * Math.cos(theta);
-        result[idx++] = r * Math.cos(phi);
-        result[idx++] = r * Math.sin(phi) * Math.sin(theta);
-    }
+    result.set(merged.slice(0, totalPointCount * 3));
 
     return result;
 }
@@ -211,4 +229,4 @@ function getEarthConfig() {
     };
 }
 
-export { generateEarthPointCloud, getEarthConfig };
+export { generateEarthPointCloud, generateEarthLayeredPointCloud, getEarthConfig };
