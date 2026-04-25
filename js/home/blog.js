@@ -77,7 +77,7 @@ function createCardMarkup(post, index) {
                         ${post.excerpt.en}
                     </p>
                     <span class="text-primary text-sm font-medium flex items-center">
-                        Read More <i class="fa fa-arrow-right ml-2"></i>
+                        Read More <i class="fa-solid fa-arrow-right ml-2"></i>
                     </span>
                 </div>
             </a>
