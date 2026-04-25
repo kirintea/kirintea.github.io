@@ -1,0 +1,51 @@
+/*
+ * Links 页面 - 工业系统风格
+ * 背景特效 - 真实等高线地形图片 + 有机条纹装饰
+ */
+
+* {
+    box-sizing: border-box;
+}
+
+.links-section {
+    padding: 140px 3rem 6rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: #fafafa;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 真实等高线地形背景 */
+.links-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('./landscape_background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    z-index: 0;
+}
+
+/* 地图方格 + 黄色有机条纹装饰 */
+.links-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1600'%3E%3Cpath d='M-300,50 C-100,-150 100,250 300,50 C500,-150 700,250 900,50 C1100,-150 1300,250 1900,50' stroke='%23f6ff00' stroke-width='110' fill='none' opacity='0.2' stroke-linecap='round'/%3E%3Cpath d='M-300,350 C-100,150 100,550 300,350 C500,150 700,550 900,350 C1100,150 1300,550 1900,350' stroke='%23f6ff00' stroke-width='90' fill='none' opacity='0.18' stroke-linecap='round'/%3E%3Cpath d='M-300,650 C-100,450 100,850 300,650 C500,450 700,850 900,650 C1100,450 1300,850 1900,650' stroke='%23f6ff00' stroke-width='75' fill='none' opacity='0.16' stroke-linecap='round'/%3E%3Cpath d='M-300,950 C-100,750 100,1150 300,950 C500,750 700,1150 900,950 C1100,750 1300,1150 1900,950' stroke='%23f6ff00' stroke-width='60' fill='none' opacity='0.14' stroke-linecap='round'/%3E%3Cpath d='M-300,1250 C-100,1050 100,1450 300,1250 C500,1050 700,1450 900,1250 C1100,1050 1300,1450 1900,1250' stroke='%23f6ff00' stroke-width='45' fill='none' opacity='0.12' stroke-linecap='round'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M0,0.5 L60,0.5' stroke='rgba(0,0,0,0.15)' stroke-width='1' stroke-dasharray='5,5'/%3E%3Cpath d='M0.5,0 L0.5,60' stroke='rgba(0,0,0,0.15)' stroke-width='1' stroke-dasharray='5,5'/%3E%3C/svg%3E");
+    background-size: 1600px 1600px, 60px 60px;
+    background-repeat: repeat, repeat;
+    opacity: 1;
+    z-index: 0;
+}

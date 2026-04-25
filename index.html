@@ -1,264 +1,81 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KirinTea_Aki</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="64x64" href="assets/images/favicon-64x64.png">
-    <link rel="icon" type="image/png" sizes="128x128" href="assets/images/favicon-128x128.png">
-    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
-    <link rel="stylesheet" href="../css/base/styles.css">
-    <link rel="stylesheet" href="../css/home.css">
-    <style>
-        .home-section {
-            position: relative;
-            min-height: 100vh;
+    <title>KirinTeaAki - AI Engineer & Researcher</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="./assets/images/favicon-64x64.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="./assets/images/favicon-128x128.png">
+    <link rel="shortcut icon" type="image/png" href="./assets/images/favicon.png">
+    <!-- Importmap for Three.js -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "./vendor/three/build/three.module.js",
+                "three/examples/": "./vendor/three/examples/"
+            }
         }
-        .container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        #akCanvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        #page_n_2 {
-            background-color: #000;
-        }
-        #page_n_2 .container {
-            background-color: #000;
-        }
-        #page_n_3 {
-            background-color: #000;
-        }
-        #page_n_3 .container {
-            background-color: #000;
-        }
-        #canvas-container {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-        #canvas-container canvas {
-            width: 100% !important;
-            height: 100% !important;
-        }
-        #home {
-            background: radial-gradient(circle at top, #ffffff 0%, #fff7fb 35%, #ffe0ef 100%);
-        }
-    </style>
-</head>
-<body>
-    <!-- 引入导航栏 -->
-    <div id="navbar-placeholder"></div>
-
-    <!-- 首页内容 -->
-    <!-- 第1分页 -->
-    <section id="page_n_1" class="home-section">
-        <div class="deconstruct-bg">
-            <div class="grid-lines"></div>
-            <div class="glitch-overlay"></div>
-        </div>
-        <div class="hero-center">
-            <h1 class="entry-title">
-                <span class="title-main">KirinTea_Aki</span>
-                <span class="title-sub">// DECONSTRUCTED REALITY</span>
-            </h1>
-            <div class="entry-tags">
-                <span class="entry-tag">SYS: ONLINE</span>
-                <span class="entry-tag">MODE: EXPLORE</span>
-                <span class="entry-tag">STATUS: 0x4F4B</span>
-            </div>
-            <div class="entry-links">
-                <a href="https://github.com/kirintea" target="_blank" class="social-link github-link">
-                    <svg class="social-icon" viewBox="0 0 24 24" width="18" height="18">
-                        <path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                    <span>GitHub</span>
-                </a>
-                <a href="https://www.modelscope.cn/profile/kirintea" target="_blank" class="social-link modelscope-link">
-                    <svg class="social-icon" viewBox="0 0 24 24" width="18" height="18">
-                        <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
-                    </svg>
-                    <span>ModelScope</span>
-                </a>
-                <a href="https://space.bilibili.com/283403299" target="_blank" class="social-link bilibili-link">
-                    <svg class="social-icon" viewBox="0 0 24 24" width="18" height="18">
-                        <path fill="currentColor" d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v5.587c-.036 1.458-.525 2.687-1.467 3.687s-2.148 1.542-3.72 1.596h-9.82c-1.573-.054-2.839-.621-3.796-1.697-.957-1.075-1.453-2.307-1.489-3.696V9.987c.036-1.458.532-2.687 1.489-3.687s2.223-1.542 3.796-1.696h1.468v-.891L7.547 2.14l-1.354-1.354L5.106 2.14v2.513h-.853c-1.573.108-2.896.685-3.967 1.729C-0.788 7.426-1.3 8.708-1.325 10.24v5.587c.025 1.459.55 2.688 1.574 3.687 1.024 1 2.289 1.541 3.796 1.625h12.347c1.507-.083 2.773-.624 3.796-1.625 1.024-1 1.549-2.228 1.574-3.687V10.24c-.025-1.533-.55-2.777-1.574-3.733-1.024-.955-2.25-1.49-3.675-1.602h-.854v2.546l1.085-1.085 1.354 1.354 1.085-1.354v-2.513h-3.216v.891h1.468v-.036zM9.606 14.96c0 .354.1.645.3.875.2.23.475.342.825.342h.877v-4.2h-.877c-.35 0-.625.104-.825.313-.2.208-.3.492-.3.85v1.82zm4.252 0c0 .354-.1.645-.3.875-.2.23-.475.342-.825.342h-.877v-4.2h.877c.35 0 .625.104.825.313.2.208.3.492.3.85v1.82z"/>
-                    </svg>
-                    <span>Bilibili</span>
-                </a>
-            </div>
-            <div class="scroll-hint">
-                <span class="scroll-text">SCROLL TO EXPLORE</span>
-                <span class="scroll-line"></span>
-            </div>
-        </div>
-    </section>
-
-    <!-- 第2分页 -->
-    <section id="page_n_2" class="home-section">
-
-        <!-- 特效展示区 -->
-        <div class="container">
-            <canvas id="akCanvas"></canvas>
-        </div>
-        <div class="signal-lab-hud" aria-label="Signal Lab telemetry">
-            <div class="signal-lab-title">
-                <p class="signal-lab-kicker">EXPERIMENTAL FIELD</p>
-                <h2>PARTICLE LAB</h2>
-                <p class="signal-lab-subtitle">Sunaookami Shiroko OC</p>
-            </div>
-            <div class="signal-lab-telemetry" aria-live="polite">
-                <div class="telemetry-row">
-                    <span class="telemetry-label">INPUT</span>
-                    <span class="telemetry-value" id="lab-input">MOUSE / IDLE</span>
-                </div>
-                <div class="telemetry-row">
-                    <span class="telemetry-label">FIELD</span>
-                    <span class="telemetry-value" id="lab-field">PARTICLE GRID / STABLE</span>
-                </div>
-                <div class="telemetry-row">
-                    <span class="telemetry-label">LOCK</span>
-                    <span class="telemetry-value" id="lab-lock">SEARCHING</span>
-                </div>
-                <div class="telemetry-row">
-                    <span class="telemetry-label">ENERGY</span>
-                    <span class="telemetry-value" id="lab-energy">12%</span>
-                </div>
-            </div>
-            <div class="signal-lab-log">
-                <span class="signal-lab-log-label">SYSTEM LOG</span>
-                <p id="lab-log-message">TRACE VECTOR STANDBY</p>
-            </div>
-            <div class="signal-lab-frame" aria-hidden="true">
-                <span class="frame-corner frame-corner-tl"></span>
-                <span class="frame-corner frame-corner-tr"></span>
-                <span class="frame-corner frame-corner-bl"></span>
-                <span class="frame-corner frame-corner-br"></span>
-                <span class="signal-lab-scan"></span>
-            </div>
-        </div>
-    </section>
-
-    <!-- 第3分页 -->
-    <section id="page_n_3" class="home-section">
-
-        <!-- 特效展示区 -->
-        <div class="container" id="EPCE-container">
-            <div id="canvas-container"></div>
-        </div>
-        <div class="orbital-observatory-hud" aria-label="Orbital Observatory telemetry">
-            <div class="observatory-title">
-                <span class="observatory-kicker">STATION NODE 03</span>
-                <span class="observatory-title-main">ORBITAL OBSERVATORY</span>
-                <span class="observatory-subtitle">DIGITAL EARTH / STATION VIEW</span>
-                <span class="observatory-mission">LIVE PLANETARY SURFACE MONITORING</span>
-            </div>
-            <div class="observatory-telemetry" aria-live="polite">
-                <div class="telemetry-row">
-                    <span class="telemetry-label">TARGET</span>
-                    <span class="telemetry-value" id="orbit-target">EARTH / LOCKED</span>
-                </div>
-                <div class="telemetry-row">
-                    <span class="telemetry-label">ORBIT</span>
-                    <span class="telemetry-value" id="orbit-state">LUNAR SYNC</span>
-                </div>
-                <div class="telemetry-row">
-                    <span class="telemetry-label">SCAN</span>
-                    <span class="telemetry-value" id="orbit-scan">ACTIVE</span>
-                </div>
-                <div class="telemetry-row">
-                    <span class="telemetry-label">ROTATION</span>
-                    <span class="telemetry-value" id="orbit-rotation">0.002 RAD</span>
-                </div>
-                <div class="telemetry-row">
-                    <span class="telemetry-label">SIGNAL</span>
-                    <span class="telemetry-value" id="orbit-signal">STABLE</span>
-                </div>
-            </div>
-            <div class="observatory-log">
-                <span class="observatory-log-label">TX</span>
-                <p id="orbit-log-message">TRANSMISSION LINK OPEN</p>
-            </div>
-            <div class="observatory-frame" aria-hidden="true">
-                <span class="observatory-title-rail"></span>
-                <span class="observatory-telemetry-rail"></span>
-                <span class="observatory-log-rail"></span>
-                <span class="observatory-arc observatory-arc-left"></span>
-                <span class="observatory-arc observatory-arc-right"></span>
-                <span class="observatory-line observatory-line-top"></span>
-                <span class="observatory-line observatory-line-bottom"></span>
-                <span class="observatory-scan-pulse"></span>
-            </div>
-        </div>
-    </section>
-
-    <!-- 第4分页 -->
-    <section id="page_n_4" class="home-section">
-        <h2>temp</h2>
-    </section>
-
-    <!-- 第5分页 -->
-    <section id="page_n_5" class="home-section">
-        <h2>temp</h2>
-    </section>
-
-    <script src="js/app.js"></script>
-    <script src="js/home-signal-lab.js"></script>
-    <script src="js/home-orbital-observatory.js"></script>
-    <script src="js/canvasClass.js"></script>
+    </script>
+    <!-- Tailwind CSS -->
+    <script src="./vendor/tailwind/tailwind.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="./vendor/fontawesome/font-awesome.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="./vendor/aos/aos.css">
+    <script src="./vendor/aos/aos.js"></script>
+    <!-- GSAP for advanced animations -->
+    <script src="./vendor/gsap/gsap.min.js"></script>
+    <script src="./vendor/gsap/ScrollTrigger.min.js"></script>
+    <!-- Chart.js -->
+    <script src="./vendor/chartjs/chart.umd.min.js"></script>
+    <!-- 外部CSS文件 -->
+    <link rel="stylesheet" href="css/home/custom.css">
+    <link rel="stylesheet" href="css/home/tailwind.css">
+    <link rel="stylesheet" href="css/navbar/navbar.css">
+    
+    <!-- Tailwind 配置 -->
     <script>
-        // 等待DOM加载完成后初始化
-        window.onload = function() {
-            let canvas = document.getElementById('akCanvas');
-            if (canvas) {
-                console.log('Canvas found:', canvas);
-                console.log('Loading particle effect...');
-
-                // 使用图片
-                let DameDaneParticleDemo = new DameDaneParticle(canvas, {
-                  src: 'assets/images/baizi_hb.png',
-                  w: 600,
-                  size: 2,
-                  spacing: 2,
-                  validColor: {
-                    min: 300,
-                    max: 765,
-                    invert: false
-                  },
-                  effectParticleMode: 'adsorption',
-                  Thickness: 25,
-                  Drag: 0.95,
-                  Ease: 0.1
-                }, function() {
-                    console.log('Particle effect initialized successfully!');
-                });
-                if (typeof attachSignalLabHud === 'function') {
-                    attachSignalLabHud(DameDaneParticleDemo);
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00f5a0',
+                        secondary: '#00d9f5',
+                        dark: '#0a0a0a',
+                        'dark-gray': '#1a1a1a',
+                        'light-gray': '#f0f0f0'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Helvetica', 'Arial', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    }
                 }
-            } else {
-                console.error('Canvas element not found!');
             }
         };
     </script>
-    <script type="importmap">
-    {
-      "imports": {
-        "three": "./js/three.module.js"
-      }
-    }
-    </script>
-    <script type="module" src="js/EPCE.js"></script>
+</head>
+<body>
+
+    <!-- 组件容器 -->
+    <div id="header"></div>
+    <div id="oc-role"></div>
+    <div id="process"></div>
+    <!-- <div id="projects"></div> -->
+    <div id="skills"></div>
+    <div id="blog"></div>
+    <!-- <div id="experience"></div> -->
+    <!-- <div id="contact"></div> -->
+    <!-- <div id="publications"></div> -->
+    <!-- <div id="services"></div> -->
+    <!-- <div id="cta"></div> -->
+    <div id="footer"></div>
+    
+    <!-- 外部JavaScript文件 -->
+    <script type="module" src="js/navbar/app.js"></script>
+    <script type="module" src="js/home/main.js"></script>
 </body>
 </html>

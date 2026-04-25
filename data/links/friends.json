@@ -14,13 +14,6 @@
     "link": "#"
   },
   {
-    "name": "licyk_",
-    "role": "Bilibili UP",
-    "desc": "Bilibili UP, specializing in AI painting, model training, integration package production, and Linux tool development.",
-    "avatar": "licyk_.webp",
-    "link": "https://space.bilibili.com/46497516"
-  },
-  {
     "name": "今宵鳩鳴",
     "role": "Bilibili UP",
     "desc": "Specializing in AI painting tutorials, model training (LoRA/secondary creation models), MMD creation, game live broadcasts & highlights, and open-source resource sharing (training tools, workflow, model files).",
@@ -50,7 +43,7 @@
   },
   {
     "name": "ONTONOUS",
-    "role": "researcher",
+    "role": "Researcher",
     "desc": "AI researcher, KYO",
     "avatar": "KYO.jpg",
     "link": "https://huggingface.co/ONTONOUS"
@@ -64,16 +57,23 @@
   },
   {
     "name": "EEE",
-    "role": "artist",
+    "role": "Artist",
     "desc": "AI artist",
     "avatar": "eee.jpg",
     "link": "https://space.bilibili.com/25974406"
   },
   {
     "name": "An25",
-    "role": "game developer",
+    "role": "Game Developer",
     "desc": "Independent game developer | AI artist | pixiv | rimworld",
     "avatar": "an25.jpg",
     "link": "https://space.bilibili.com/2461560"
+  },
+  {
+    "name": "licyk_",
+    "role": "Bilibili UP",
+    "desc": "Bilibili UP, specializing in AI painting, model training, integration package production, and Linux tool development.",
+    "avatar": "licyk_.webp",
+    "link": "https://space.bilibili.com/46497516"
   }
 ]

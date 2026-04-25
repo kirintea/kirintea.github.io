@@ -1,0 +1,23 @@
+@layer utilities {
+    .text-gradient {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+    }
+    .bg-glass {
+        @apply bg-opacity-20 backdrop-blur-lg backdrop-filter;
+    }
+    .card-hover {
+        @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-1;
+    }
+    .btn-primary {
+        @apply bg-gradient-to-r from-primary to-secondary text-dark font-bold py-3 px-8 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 hover:scale-105;
+    }
+    .btn-secondary {
+        @apply bg-dark border border-primary text-primary font-bold py-3 px-8 rounded-full transition-all duration-300 hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/20;
+    }
+    .nav-link {
+        @apply text-white hover:text-primary transition-colors duration-300;
+    }
+    .nav-link-active {
+        @apply text-primary border-b-2 border-primary;
+    }
+}

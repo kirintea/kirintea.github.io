@@ -1,0 +1,13 @@
+/*
+ * Links 页面 - 工业系统风格
+ * 主入口文件 - 导入所有模块
+ */
+
+/* 背景特效 - 地图方格 + 等高线 */
+@import url('./background.css');
+
+/* 卡片样式 - Friends & Projects */
+@import url('./cards.css');
+
+/* 主要内容 - 标题、容器、响应式 */
+@import url('./base.css');

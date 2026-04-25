@@ -1,0 +1,65 @@
+/*
+ * Home Page - Social Links
+ * 首页头像区底部的外链入口按钮样式。
+ */
+
+/* ========================================
+ * Entry Links Layout
+ * ======================================== */
+
+.entry-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.social-icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+/* ========================================
+ * Platform Variants
+ * ======================================== */
+
+.github-link {
+    background-color: #24292e;
+    color: white;
+}
+
+.github-link:hover {
+    background-color: #0366d6;
+}
+
+.modelscope-link {
+    background-color: #00c7b7;
+    color: white;
+}
+
+.modelscope-link:hover {
+    background-color: #00a89a;
+}
+
+.bilibili-link {
+    background-color: #fb7299;
+    color: white;
+}
+
+.bilibili-link:hover {
+    background-color: #fa6178;
+}

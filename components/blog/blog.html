@@ -1,0 +1,50 @@
+<!-- blog.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="../../assets/images/favicon-64x64.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="../../assets/images/favicon-128x128.png">
+    <link rel="shortcut icon" type="image/png" href="../../assets/images/favicon.png">
+    <link rel="stylesheet" href="../../css/navbar/navbar.css">
+    <link rel="stylesheet" href="../../css/blog/blog.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <section id="blog" class="blog-section">
+        <div class="blog-container">
+            <div class="blog-header">
+                <h1 class="blog-title">Blog Posts</h1>
+                <div class="blog-controls">
+                    <div class="view-switcher" aria-label="Blog layout switcher">
+                        <button class="view-btn active" data-view="cards" type="button">Cards</button>
+                        <button class="view-btn" data-view="journey" type="button">Line</button>
+                    </div>
+                    <button class="sort-btn" id="sort-toggle-btn" type="button" data-order="desc">Newest First</button>
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="cn">中文</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tags-filter">
+                <div class="tags-label">Filter Tags:</div>
+                <div class="tags-list" id="tags-list">
+                </div>
+            </div>
+
+            <div class="blog-posts cards-view" id="blog-posts">
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="../../js/navbar/app.js"></script>
+    <script src="../../js/blog/blog.js"></script>
+</body>
+</html>

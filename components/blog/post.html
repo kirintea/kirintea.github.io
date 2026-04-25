@@ -1,0 +1,33 @@
+<!-- post.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="../../assets/images/favicon-64x64.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="../../assets/images/favicon-128x128.png">
+    <link rel="shortcut icon" type="image/png" href="../../assets/images/favicon.png">
+    <link rel="stylesheet" href="../../css/navbar/navbar.css">
+    <link rel="stylesheet" href="../../css/blog/post.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <section id="post" class="post-section">
+        <div class="post-container">
+            <a href="blog.html" class="back-link">&larr; Back to Blog</a>
+            
+            <article class="post-content" id="post-content">
+                <div class="post-loading">Loading...</div>
+            </article>
+        </div>
+    </section>
+
+    <script src="../../vendor/marked/marked.min.js"></script>
+    <script type="module" src="../../js/navbar/app.js"></script>
+    <script src="../../js/blog/post.js"></script>
+</body>
+</html>

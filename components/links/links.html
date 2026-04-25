@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links - KirinTeaAki</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="../../assets/images/favicon-64x64.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="../../assets/images/favicon-128x128.png">
+    <link rel="shortcut icon" type="image/png" href="../../assets/images/favicon.png">
+    <!-- Tailwind CSS -->
+    <script src="../../vendor/tailwind/tailwind.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../vendor/fontawesome/font-awesome.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="../../vendor/aos/aos.css">
+    <script src="../../vendor/aos/aos.js"></script>
+    <!-- 外部CSS文件 -->
+    <link rel="stylesheet" href="../../css/home/custom.css">
+    <link rel="stylesheet" href="../../css/home/tailwind.css">
+    <link rel="stylesheet" href="../../css/navbar/navbar.css">
+    <link rel="stylesheet" href="../../css/links/links.css">
+    
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00f5a0',
+                        secondary: '#00d9f5',
+                        dark: '#0a0a0a',
+                        'dark-gray': '#1a1a1a',
+                        'light-gray': '#f0f0f0'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Helvetica', 'Arial', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <div id="links-container"></div>
+
+    <script type="module" src="../../js/navbar/app.js"></script>
+    <script type="module" src="../../js/links/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,632 @@
+/*
+ * Home Page - Process Section
+ * "How I work" 区块专属样式。
+ */
+
+/* ========================================
+ * Section Shell
+ * ======================================== */
+
+.process-section {
+    position: relative;
+    background:
+        radial-gradient(circle at 50% 46%, rgba(0, 245, 160, 0.08), transparent 16rem),
+        radial-gradient(circle at 50% 46%, rgba(0, 217, 245, 0.05), transparent 22rem),
+        #050505;
+}
+
+.process-ambient {
+    position: absolute;
+    width: 18rem;
+    height: 18rem;
+    border-radius: 9999px;
+    filter: blur(90px);
+    opacity: 0.18;
+    pointer-events: none;
+}
+
+.process-ambient-left {
+    top: 6rem;
+    left: -4rem;
+    background: rgba(0, 245, 160, 0.45);
+}
+
+.process-ambient-right {
+    right: -5rem;
+    top: 10rem;
+    background: rgba(0, 217, 245, 0.22);
+}
+
+/* ========================================
+ * Header Copy
+ * ======================================== */
+
+.process-kicker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.65rem 1.15rem;
+    border: 1px solid rgba(0, 245, 160, 0.16);
+    border-radius: 9999px;
+    background: rgba(0, 245, 160, 0.08);
+    color: #00f5a0;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+}
+
+.process-title {
+    margin: 0;
+    color: #f6f3ee;
+    font-family: 'Inter', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: clamp(3.3rem, 8vw, 6.4rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+}
+
+.process-subtitle {
+    color: rgba(255, 255, 255, 0.66);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ========================================
+ * Workflow Layout
+ * ======================================== */
+
+.process-diagram {
+    position: relative;
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 248px 13rem 248px;
+    gap: clamp(2rem, 6vw, 8rem);
+    align-items: center;
+    min-height: 30rem;
+    justify-content: center;
+}
+
+.process-column {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    height: 100%;
+    grid-template-rows: repeat(5, minmax(0, 1fr));
+}
+
+.process-column-left {
+    justify-items: end;
+}
+
+.process-column-right {
+    justify-items: start;
+    display: block;
+    position: relative;
+    min-height: 31rem;
+    width: 248px;
+}
+
+/* ========================================
+ * Workflow Cards
+ * ======================================== */
+
+.process-card {
+    position: relative;
+    width: 248px;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.95rem 1.05rem;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 1.15rem;
+    background: rgba(25, 25, 25, 0.9);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(10px);
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        background-color 0.35s ease;
+    overflow: hidden;
+}
+
+.process-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at left center, rgba(0, 245, 160, 0.12), transparent 68%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.process-card:hover {
+    border-color: rgba(0, 245, 160, 0.28);
+    background: rgba(28, 28, 28, 0.96);
+    box-shadow:
+        0 20px 44px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(0, 245, 160, 0.04) inset;
+}
+
+.process-card:hover::before {
+    opacity: 1;
+}
+
+.process-card-icon {
+    width: 3rem;
+    height: 3rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    color: #c8ffe8;
+    font-size: 1rem;
+    flex-shrink: 0;
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background-color 0.35s ease,
+        color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.process-card:hover .process-card-icon {
+    transform: translateY(-2px) scale(1.04);
+    border-color: rgba(0, 245, 160, 0.28);
+    background: rgba(0, 245, 160, 0.08);
+    color: #f0fff8;
+    box-shadow: 0 0 18px rgba(0, 245, 160, 0.12);
+}
+
+.process-card-copy h3,
+.process-card-copy p {
+    transition:
+        transform 0.35s ease,
+        color 0.35s ease,
+        opacity 0.35s ease;
+}
+
+.process-card:hover .process-card-copy h3,
+.process-card:hover .process-card-copy p {
+    transform: translateY(-1px);
+}
+
+.process-card-copy h3 {
+    margin: 0 0 0.35rem;
+    color: #f5f0e8;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.1rem;
+    line-height: 1.05;
+}
+
+.process-card-copy p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+
+.process-card-principles {
+    grid-row: 2;
+}
+
+.process-card-noise {
+    grid-row: 4;
+}
+
+.process-card-right {
+    position: absolute;
+    left: 0;
+    width: 248px;
+}
+
+.process-card-build {
+    top: calc(23.33% - 4.5rem);
+    transform: translateY(-50%);
+}
+
+.process-card-debug {
+    top: calc(50% - 4.5rem);
+    transform: translateY(-50%);
+}
+
+.process-card-ship {
+    top: calc(76.67% - 4.5rem);
+    transform: translateY(-50%);
+}
+
+.process-card-left:hover {
+    transform: translateY(-6px);
+}
+
+.process-card-right:hover {
+    transform: translateY(calc(-50% - 6px));
+}
+
+/* ========================================
+ * AI Engine Core
+ * ======================================== */
+
+.process-core-wrap {
+    position: relative;
+    width: 13rem;
+    height: 13rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transform: translateY(-1.1rem);
+}
+
+.process-core-ring,
+.process-core-glow,
+.process-core {
+    position: absolute;
+    border-radius: 9999px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.process-core-ring {
+    border: 1px dashed rgba(0, 245, 160, 0.24);
+    box-shadow: 0 0 0 1px rgba(0, 245, 160, 0.02) inset;
+}
+
+.process-core-ring-1 {
+    width: 100%;
+    height: 100%;
+    border-style: dotted;
+    border-color: rgba(0, 245, 160, 0.16);
+    animation: process-spin 34s linear infinite;
+}
+
+.process-core-ring-2 {
+    width: 76%;
+    height: 76%;
+    border-style: solid;
+    border-color: rgba(0, 245, 160, 0.12);
+    animation: process-spin 22s linear infinite reverse;
+}
+
+.process-core-ring-3 {
+    width: 54%;
+    height: 54%;
+    border-style: dashed;
+    border-color: rgba(0, 245, 160, 0.28);
+    animation: process-spin 14s linear infinite;
+}
+
+.process-core-glow {
+    width: 5.2rem;
+    height: 5.2rem;
+    background: radial-gradient(circle, rgba(0, 245, 160, 0.38), transparent 72%);
+    filter: blur(22px);
+    animation: process-core-glow-pulse 4s ease-in-out infinite alternate;
+}
+
+.process-core {
+    width: 5.75rem;
+    height: 5.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    border: 1px solid rgba(0, 245, 160, 0.32);
+    background: linear-gradient(180deg, rgba(19, 24, 21, 0.96), rgba(8, 12, 10, 0.96));
+    box-shadow:
+        0 0 0 6px rgba(0, 245, 160, 0.03),
+        0 0 30px rgba(0, 245, 160, 0.1);
+}
+
+.process-core-icon {
+    color: #eafff5;
+    font-size: 1.2rem;
+    animation: process-core-icon-float 2.8s ease-in-out infinite alternate;
+}
+
+.process-core span {
+    color: #00f5a0;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+/* ========================================
+ * Workflow Lines
+ * ======================================== */
+
+.process-lines {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+}
+
+.process-flow-path {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.12);
+    stroke-width: 1.4;
+}
+
+.process-flow-dot {
+    fill: #00f5a0;
+    filter: drop-shadow(0 0 6px rgba(0, 245, 160, 0.7));
+    opacity: 0;
+}
+
+.process-flow-dot-1 {
+    offset-path: path("M 250,120 C 350,120 400,200 500,200");
+    animation: process-flow-move 4.2s linear infinite;
+}
+
+.process-flow-dot-2 {
+    offset-path: path("M 250,280 C 350,280 400,200 500,200");
+    animation: process-flow-move 4.2s linear infinite 1.4s;
+}
+
+.process-flow-dot-3 {
+    offset-path: path("M 500,200 C 600,200 650,100 750,100");
+    animation: process-flow-move 5s linear infinite 0.4s;
+}
+
+.process-flow-dot-4 {
+    offset-path: path("M 500,200 C 600,200 650,200 750,200");
+    animation: process-flow-move 5s linear infinite 1.9s;
+}
+
+.process-flow-dot-5 {
+    offset-path: path("M 500,200 C 600,200 650,300 750,300");
+    animation: process-flow-move 5s linear infinite 3.2s;
+}
+
+/* ========================================
+ * Tech Stack Marquee
+ * ======================================== */
+
+.process-stack {
+    margin-top: 3rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.process-stack::before,
+.process-stack::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 5rem;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.process-stack::before {
+    left: 0;
+    background: linear-gradient(90deg, #050505, rgba(5, 5, 5, 0));
+}
+
+.process-stack::after {
+    right: 0;
+    background: linear-gradient(270deg, #050505, rgba(5, 5, 5, 0));
+}
+
+.process-stack-marquee {
+    display: flex;
+    width: max-content;
+    gap: 1rem;
+    animation: process-marquee 26s linear infinite;
+}
+
+.process-stack-track {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 1rem;
+    width: max-content;
+    white-space: nowrap;
+}
+
+.process-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.85rem 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 9999px;
+    background: rgba(27, 27, 27, 0.92);
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 1.05rem;
+    font-weight: 600;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    flex: 0 0 auto;
+}
+
+.process-pill i {
+    color: #c8ffe8;
+}
+
+/* ========================================
+ * Animations
+ * ======================================== */
+
+@keyframes process-spin {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes process-flow-move {
+    0% {
+        offset-distance: 0%;
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    10% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    90% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        offset-distance: 100%;
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+@keyframes process-core-glow-pulse {
+    from {
+        transform: translate(-50%, -50%) scale(0.88);
+        opacity: 0.2;
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1.18);
+        opacity: 0.48;
+    }
+}
+
+@keyframes process-core-icon-float {
+    from {
+        transform: translateY(0) scale(0.94);
+        opacity: 0.78;
+    }
+
+    to {
+        transform: translateY(-3px) scale(1.06);
+        opacity: 1;
+        text-shadow: 0 0 14px rgba(0, 245, 160, 0.35);
+    }
+}
+
+@keyframes process-marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-50% - 0.5rem));
+    }
+}
+
+/* ========================================
+ * Responsive Adjustments
+ * ======================================== */
+
+@media (max-width: 1180px) {
+    .process-diagram {
+        grid-template-columns: 1fr;
+        gap: 2.75rem;
+        min-height: unset;
+    }
+
+    .process-lines {
+        display: none;
+    }
+
+    .process-column,
+    .process-column-left,
+    .process-column-right {
+        display: flex;
+        align-items: center;
+        justify-items: unset;
+        height: auto;
+        gap: 1.5rem;
+        width: auto;
+    }
+
+    .process-core-wrap {
+        order: -1;
+        margin: 0 auto;
+    }
+
+    .process-card-principles,
+    .process-card-noise,
+    .process-card-build,
+    .process-card-debug,
+    .process-card-ship {
+        grid-row: auto;
+        transform: none;
+    }
+
+    .process-card-right {
+        position: relative;
+        left: auto;
+        top: auto;
+    }
+
+    .process-card-build:hover,
+    .process-card-debug:hover,
+    .process-card-ship:hover,
+    .process-card-left:hover,
+    .process-card-right:hover {
+        transform: translateY(-6px);
+    }
+}
+
+@media (max-width: 768px) {
+    .process-section {
+        padding-top: 5.5rem;
+        padding-bottom: 5.5rem;
+    }
+
+    .process-title {
+        font-size: clamp(2.7rem, 16vw, 4rem);
+    }
+
+    .process-subtitle {
+        font-size: 0.97rem;
+        line-height: 1.7;
+    }
+
+    .process-core-wrap {
+        width: 11rem;
+        height: 11rem;
+    }
+
+    .process-core {
+        width: 5.2rem;
+        height: 5.2rem;
+    }
+
+    .process-card {
+        width: 100%;
+        max-width: 26rem;
+    }
+
+    .process-card-copy h3 {
+        font-size: 1.6rem;
+    }
+
+    .process-pill {
+        font-size: 0.95rem;
+        padding: 0.8rem 1.05rem;
+    }
+
+    .process-stack::before,
+    .process-stack::after {
+        width: 2.5rem;
+    }
+}
