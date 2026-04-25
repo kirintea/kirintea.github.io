@@ -4,34 +4,49 @@
 
     <div class="container mx-auto px-4 relative z-10">
         <div class="text-center max-w-4xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
-            <div class="process-kicker">My Process</div>
-            <h2 class="process-title mt-6">How I work.</h2>
-            <p class="process-subtitle mt-6">
+            <div class="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+                My Process
+            </div>
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                How I work
+            </h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
                 Think sharp. Build fast. Ship clean. No unnecessary steps, just a tight loop that gets things done.
             </p>
         </div>
 
         <div class="process-diagram" data-aos="fade-up" data-aos-delay="100">
-            <svg class="process-lines" viewBox="0 0 1000 420" preserveAspectRatio="none" aria-hidden="true">
+            <div class="process-diagram-field" aria-hidden="true"></div>
 
-                <!-- Left to Center lines -->
-                <path class="process-flow-path" d="M 250,120 C 350,120 400,200 500,200" />
-                <path class="process-flow-path" d="M 250,280 C 350,280 400,200 500,200" />
+            <svg class="process-lines" viewBox="0 0 1200 520" preserveAspectRatio="none" aria-hidden="true">
+                <path class="process-flow-path process-flow-path-left-top"
+                    d="M 250,135 H 350 C 385,135 408,160 408,194 V 222 C 408,240 420,252 440,252 H 515" />
+                <path class="process-flow-path process-flow-path-left-bottom"
+                    d="M 250,385 H 350 C 385,385 408,360 408,326 V 298 C 408,280 420,268 440,268 H 515" />
 
-                <!-- Center to Right lines -->
-                <path class="process-flow-path" d="M 500,200 C 600,200 650,100 750,80" />
-                <path class="process-flow-path" d="M 500,200 C 600,200 650,200 750,200" />
-                <path class="process-flow-path" d="M 500,200 C 600,200 650,300 750,320" />
+                <path class="process-flow-path process-flow-path-right-top"
+                    d="M 685,232 H 760 C 790,232 812,208 812,178 V 146 C 812,124 830,114 858,114 H 950" />
+                <path class="process-flow-path process-flow-path-right-mid"
+                    d="M 685,260 H 860 H 950" />
+                <path class="process-flow-path process-flow-path-right-bottom"
+                    d="M 685,288 H 760 C 790,288 812,312 812,342 V 374 C 812,396 830,406 858,406 H 950" />
 
-                <circle class="process-flow-dot process-flow-dot-1" r="4"></circle>
-                <circle class="process-flow-dot process-flow-dot-2" r="4"></circle>
-                <circle class="process-flow-dot process-flow-dot-3" r="4"></circle>
-                <circle class="process-flow-dot process-flow-dot-4" r="4"></circle>
-                <circle class="process-flow-dot process-flow-dot-5" r="4"></circle>
+                <circle class="process-flow-joint" cx="250" cy="135" r="7"></circle>
+                <circle class="process-flow-joint" cx="250" cy="385" r="7"></circle>
+                <circle class="process-flow-joint" cx="950" cy="114" r="7"></circle>
+                <circle class="process-flow-joint" cx="950" cy="260" r="7"></circle>
+                <circle class="process-flow-joint" cx="950" cy="406" r="7"></circle>
+
+                <circle class="process-flow-dot process-flow-dot-1" r="4.5"></circle>
+                <circle class="process-flow-dot process-flow-dot-2" r="4.5"></circle>
+                <circle class="process-flow-dot process-flow-dot-3" r="4.5"></circle>
+                <circle class="process-flow-dot process-flow-dot-4" r="4.5"></circle>
+                <circle class="process-flow-dot process-flow-dot-5" r="4.5"></circle>
             </svg>
 
             <div class="process-column process-column-left">
                 <article class="process-card process-card-left process-card-principles" data-aos="fade-l" data-aos-delay="120">
+                    <span class="process-card-edge" aria-hidden="true"></span>
                     <div class="process-card-icon">
                         <i class="fa-solid fa-cube" aria-hidden="true"></i>
                     </div>
@@ -42,6 +57,7 @@
                 </article>
 
                 <article class="process-card process-card-left process-card-noise" data-aos="fade-right" data-aos-delay="280">
+                    <span class="process-card-edge" aria-hidden="true"></span>
                     <div class="process-card-icon">
                         <i class="fa-solid fa-filter" aria-hidden="true"></i>
                     </div>
@@ -53,9 +69,16 @@
             </div>
 
             <div class="process-core-wrap" data-aos="zoom-in" data-aos-delay="180">
+                <div class="process-core-halo"></div>
+                <div class="process-core-halo process-core-halo-secondary"></div>
                 <div class="process-core-ring process-core-ring-1"></div>
                 <div class="process-core-ring process-core-ring-2"></div>
                 <div class="process-core-ring process-core-ring-3"></div>
+                <div class="process-core-arc process-core-arc-1"></div>
+                <div class="process-core-arc process-core-arc-2"></div>
+                <div class="process-core-arc process-core-arc-3"></div>
+                <div class="process-core-orbit-dot process-core-orbit-dot-1"></div>
+                <div class="process-core-orbit-dot process-core-orbit-dot-2"></div>
                 <div class="process-core-glow"></div>
                 <div class="process-core">
                     <div class="process-core-icon">
@@ -67,6 +90,7 @@
 
             <div class="process-column process-column-right">
                 <article class="process-card process-card-right process-card-build" data-aos="fade-left" data-aos-delay="160">
+                    <span class="process-card-edge" aria-hidden="true"></span>
                     <div class="process-card-icon">
                         <i class="fa-regular fa-object-group" aria-hidden="true"></i>
                     </div>
@@ -77,6 +101,7 @@
                 </article>
 
                 <article class="process-card process-card-right process-card-debug" data-aos="fade-left" data-aos-delay="240">
+                    <span class="process-card-edge" aria-hidden="true"></span>
                     <div class="process-card-icon">
                         <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
                     </div>
@@ -87,6 +112,7 @@
                 </article>
 
                 <article class="process-card process-card-right process-card-ship" data-aos="fade-left" data-aos-delay="320">
+                    <span class="process-card-edge" aria-hidden="true"></span>
                     <div class="process-card-icon">
                         <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>
                     </div>
