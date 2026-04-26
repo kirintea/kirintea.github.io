@@ -42,6 +42,7 @@ async function loadComponents() {
     }
 
     await initFunctions();
+    window.dispatchEvent(new Event('app:home-ready'));
 }
 
 /**

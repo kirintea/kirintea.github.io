@@ -110,6 +110,7 @@ function loadNavbar() {
         container.innerHTML = html;
         initMobileMenu();
         initSmoothScroll();
+        window.dispatchEvent(new Event('app:navbar-ready'));
       }
     })
     .catch((error) => {

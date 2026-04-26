@@ -1,10 +1,10 @@
 /**
- * 鍔ㄧ敾鏁堟灉妯″潡
- * 澶勭悊椤甸潰鍔ㄧ敾鍜屾粴鍔ㄨЕ鍙戠殑鍔ㄧ敾
+ * 动画效果模块
+ * 处理页面动画与滚动触发的动画
  */
 
 /**
- * 鍒濆鍖栧姩鐢?
+ * 初始化动画
  */
 export function initAnimations() {
     if (typeof AOS !== 'undefined') {

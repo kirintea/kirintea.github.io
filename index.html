@@ -60,6 +60,13 @@
     </script>
 </head>
 <body>
+    <div id="page-loader" class="page-loader" aria-live="polite" aria-label="Page loading">
+        <div class="page-loader__content">
+            <div class="page-loader__spinner" aria-hidden="true"></div>
+            <p class="page-loader__title">Loading</p>
+            <p class="page-loader__hint">The assets are being prepared...</p>
+        </div>
+    </div>
 
     <!-- 组件容器 -->
     <div id="header"></div>
@@ -74,6 +81,35 @@
     <!-- <div id="services"></div> -->
     <!-- <div id="cta"></div> -->
     <div id="footer"></div>
+
+    <script>
+        (function() {
+            const readyState = { navbar: false, home: false };
+
+            function hideLoader() {
+                const loader = document.getElementById('page-loader');
+                if (!loader || loader.classList.contains('page-loader--hidden')) {
+                    return;
+                }
+
+                loader.classList.add('page-loader--hidden');
+                window.setTimeout(() => loader.remove(), 500);
+            }
+
+            function markReady(section) {
+                readyState[section] = true;
+                if (readyState.navbar && readyState.home) {
+                    hideLoader();
+                }
+            }
+
+            window.addEventListener('app:navbar-ready', () => markReady('navbar'));
+            window.addEventListener('app:home-ready', () => markReady('home'));
+            window.addEventListener('load', () => {
+                window.setTimeout(hideLoader, 4000);
+            });
+        })();
+    </script>
     
     <!-- 外部JavaScript文件 -->
     <script type="module" src="js/navbar/app.js"></script>

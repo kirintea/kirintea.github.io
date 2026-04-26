@@ -16,6 +16,72 @@ body {
     overflow-x: hidden;
 }
 
+.page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(circle at top, rgba(0, 245, 160, 0.14), transparent 45%),
+        linear-gradient(180deg, rgba(10, 10, 10, 0.96), rgba(10, 10, 10, 1));
+    backdrop-filter: blur(12px);
+    transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+
+.page-loader--hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.page-loader__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    text-align: center;
+    padding: 2rem;
+}
+
+.page-loader__spinner {
+    width: 64px;
+    height: 64px;
+    border: 3px solid rgba(255, 255, 255, 0.14);
+    border-top-color: #00f5a0;
+    border-right-color: #00d9f5;
+    border-radius: 50%;
+    box-shadow: 0 0 32px rgba(0, 245, 160, 0.18);
+    animation: loader-spin 0.9s linear infinite;
+}
+
+.page-loader__title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.page-loader__hint {
+    margin: 0;
+    max-width: 22rem;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.95rem;
+}
+
+@keyframes loader-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 canvas {
     display: block !important;
     max-width: 100% !important;

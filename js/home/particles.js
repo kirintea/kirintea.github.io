@@ -4,6 +4,11 @@
  */
 
 import { ParticlesSwarm } from './kh_m.js';
+import { attachParticleDebug } from './particle-debug-runtime.js';
+
+// Change this to `true` to enable the oc-role particle debug controls locally.
+// Manual startup values live in `js/home/particle-debug-preset.js`.
+const PARTICLE_DEBUG_ENABLED = false;
 
 // 粒子系统实例
 let particlesSwarm = null;
@@ -42,7 +47,12 @@ export function initParticles(container) {
         
         if (containerWidth > 0 && containerHeight > 0) {
             // 创建粒子系统实例
-            particlesSwarm = new ParticlesSwarm(container, 20000);
+            particlesSwarm = new ParticlesSwarm(container, 20000, {
+                debugEnabled: PARTICLE_DEBUG_ENABLED
+            });
+            attachParticleDebug(particlesSwarm, {
+                debugEnabled: PARTICLE_DEBUG_ENABLED
+            });
 
             // 监听窗口大小变化，调整粒子系统大小
             window.addEventListener('resize', handleResize);
