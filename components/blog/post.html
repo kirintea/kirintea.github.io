@@ -12,6 +12,7 @@
     <link rel="shortcut icon" type="image/png" href="../../assets/images/favicon.png">
     <link rel="stylesheet" href="../../css/navbar/navbar.css">
     <link rel="stylesheet" href="../../css/blog/post.css">
+    <link rel="stylesheet" href="../../vendor/prism/prism-tomorrow.min.css">
 </head>
 <body>
     <div id="navbar-placeholder"></div>
@@ -27,7 +28,14 @@
     </section>
 
     <script src="../../vendor/marked/marked.min.js"></script>
+    <script>
+        window.Prism = window.Prism || {};
+        window.Prism.manual = true;
+    </script>
+    <script src="../../vendor/prism/prism.js"></script>
+    <script src="../../vendor/prism/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../../vendor/mermaid/mermaid.min.js"></script>
     <script type="module" src="../../js/navbar/app.js"></script>
-    <script src="../../js/blog/post.js"></script>
+    <script type="module" src="../../js/blog/post.js"></script>
 </body>
 </html>

@@ -1,0 +1,12 @@
+{
+  "date": "2026-04-15",
+  "tags": ["WebGL", "Three.js", "3D", "Particle System"],
+  "title": {
+    "en": "Note: Three.js Particle System",
+    "cn": "笔记: 3JS 粒子系统"
+  },
+  "excerpt": {
+    "en": "Implementation notes for the particle system in this project. Core code analysis, performance optimization, and lessons learned.",
+    "cn": "项目中粒子系统的实现笔记。核心代码分析、性能优化和踩坑记录。"
+  }
+}

@@ -1,7 +1,8 @@
 {
   "posts": [
-    "001-threejs-3d-graphics",
-    "002-canvas-animation",
-    "003-industrial-scifi-design"
+    "001-threejs-particle",
+    "002-process-animation",
+    "999-canvas-animation",
+    "999-industrial-scifi-design"
   ]
 }

@@ -9,6 +9,7 @@ Desktop.ini
 .vscode/
 .idea/
 .worktrees/
+.trae/
 
 *.log
 
@@ -17,3 +18,4 @@ convert_favicon.py
 docs/
 参考功能/
 assets/Spine/
+tests/

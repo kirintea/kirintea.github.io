@@ -569,8 +569,7 @@
  * ======================================== */
 
 .process-stack {
-    margin-top: 3rem;
-    overflow: hidden;
+    margin-top: 3.5rem;
     position: relative;
 }
 
@@ -578,56 +577,267 @@
 .process-stack::after {
     content: "";
     position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 5rem;
-    z-index: 2;
+    top: 0.65rem;
+    bottom: 0.65rem;
+    width: clamp(3.5rem, 7vw, 6rem);
+    z-index: 5;
     pointer-events: none;
 }
 
 .process-stack::before {
     left: 0;
-    background: linear-gradient(90deg, #050505, rgba(5, 5, 5, 0));
+    background: linear-gradient(90deg, rgba(5, 5, 5, 1), rgba(5, 5, 5, 0));
 }
 
 .process-stack::after {
     right: 0;
-    background: linear-gradient(270deg, #050505, rgba(5, 5, 5, 0));
+    background: linear-gradient(270deg, rgba(5, 5, 5, 1), rgba(5, 5, 5, 0));
+}
+
+.process-stack-shell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.process-stack-viewport {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    padding: 1.05rem 0;
+    border-radius: 999px;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(0, 245, 160, 0.08), transparent 55%),
+        linear-gradient(180deg, rgba(8, 10, 11, 0.95), rgba(4, 5, 6, 0.88));
+    border: 1px solid rgba(109, 255, 214, 0.08);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        inset 0 0 30px rgba(0, 245, 160, 0.04),
+        0 16px 44px rgba(0, 0, 0, 0.28);
+}
+
+.process-stack-viewport::before {
+    content: "";
+    position: absolute;
+    inset: 0.35rem 0.75rem;
+    border-radius: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    pointer-events: none;
+}
+
+.process-stack-rail {
+    position: absolute;
+    left: 2rem;
+    right: 2rem;
+    height: 1px;
+    background: linear-gradient(90deg,
+            rgba(0, 245, 160, 0),
+            rgba(109, 255, 214, 0.34) 18%,
+            rgba(109, 255, 214, 0.2) 50%,
+            rgba(109, 255, 214, 0.34) 82%,
+            rgba(0, 245, 160, 0));
+    box-shadow: 0 0 12px rgba(109, 255, 214, 0.18);
+    pointer-events: none;
+}
+
+.process-stack-rail::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -10%;
+    width: 24%;
+    height: 9px;
+    transform: translateY(-50%);
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(109, 255, 214, 0.8), rgba(109, 255, 214, 0));
+    filter: blur(4px);
+    animation: process-rail-sweep 8.5s linear infinite;
+}
+
+.process-stack-rail-top {
+    top: 0.7rem;
+}
+
+.process-stack-rail-bottom {
+    bottom: 0.7rem;
+}
+
+.process-stack-rail-bottom::after {
+    animation-delay: 2.8s;
+}
+
+.process-stack-arrow {
+    position: relative;
+    z-index: 4;
+    width: 2.9rem;
+    height: 2.9rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    color: rgba(145, 255, 212, 0.9);
+    background: radial-gradient(circle, rgba(12, 28, 23, 0.95), rgba(8, 10, 11, 0.32) 72%, transparent 74%);
+    box-shadow: 0 0 16px rgba(0, 245, 160, 0.12);
+    pointer-events: none;
+}
+
+.process-stack-arrow::before {
+    content: "";
+    position: absolute;
+    inset: 0.6rem;
+    border-radius: inherit;
+    background: radial-gradient(circle, rgba(0, 245, 160, 0.26), rgba(0, 245, 160, 0));
+    filter: blur(6px);
 }
 
 .process-stack-marquee {
     display: flex;
     width: max-content;
-    gap: 1rem;
-    animation: process-marquee 26s linear infinite;
+    gap: 1.15rem;
+    animation: process-marquee 22s linear infinite;
+    will-change: transform;
 }
 
 .process-stack-track {
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    gap: 1rem;
+    gap: 1.15rem;
     width: max-content;
     white-space: nowrap;
+    padding-inline: 0.65rem;
 }
 
 .process-pill {
+    --pill-glow: rgba(109, 255, 214, 0.18);
+    --pill-icon: #d6fff0;
     display: inline-flex;
     align-items: center;
-    gap: 0.65rem;
-    padding: 0.85rem 1.25rem;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    gap: 0.72rem;
+    min-height: 3rem;
+    padding: 0.84rem 1.3rem;
+    border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: 9999px;
-    background: rgba(27, 27, 27, 0.92);
-    color: rgba(255, 255, 255, 0.86);
-    font-size: 1.05rem;
+    background:
+        radial-gradient(circle at 18% 50%, rgba(255, 255, 255, 0.07), transparent 24%),
+        linear-gradient(180deg, rgba(26, 30, 33, 0.96), rgba(13, 15, 17, 0.94));
+    color: rgba(247, 250, 248, 0.9);
+    font-size: 1rem;
     font-weight: 600;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    letter-spacing: -0.01em;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.28),
+        0 10px 24px rgba(0, 0, 0, 0.24);
     flex: 0 0 auto;
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.process-pill::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(120deg, transparent 25%, rgba(255, 255, 255, 0.18) 50%, transparent 75%);
+    transform: translateX(-160%);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.process-pill::after {
+    content: "";
+    position: absolute;
+    left: 14%;
+    right: 14%;
+    bottom: 0.16rem;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(109, 255, 214, 0), rgba(109, 255, 214, 0.95), rgba(109, 255, 214, 0));
+    transform: scaleX(0.3);
+    opacity: 0.34;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.process-pill:hover {
+    transform: translateY(-4px) scale(1.045);
+    border-color: rgba(109, 255, 214, 0.34);
+    color: #ffffff;
+    background:
+        radial-gradient(circle at 18% 50%, rgba(150, 255, 223, 0.14), transparent 24%),
+        linear-gradient(180deg, rgba(31, 38, 41, 0.98), rgba(15, 18, 20, 0.96));
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 0 0 1px rgba(109, 255, 214, 0.08),
+        0 14px 28px rgba(0, 0, 0, 0.34),
+        0 0 26px var(--pill-glow);
+}
+
+.process-pill:hover::before {
+    opacity: 1;
+    transform: translateX(160%);
+}
+
+.process-pill:hover::after {
+    transform: scaleX(1);
+    opacity: 0.95;
 }
 
 .process-pill i {
-    color: #c8ffe8;
+    color: var(--pill-icon);
+    font-size: 0.98rem;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+.process-pill:hover i {
+    transform: scale(1.08);
+    text-shadow: 0 0 16px currentColor;
+}
+
+.process-pill-react-native {
+    --pill-icon: #baffdf;
+}
+
+.process-pill-html {
+    --pill-icon: #ffb38f;
+}
+
+.process-pill-css {
+    --pill-icon: #9bd3ff;
+}
+
+.process-pill-js {
+    --pill-icon: #d0ffac;
+}
+
+.process-pill-python {
+    --pill-icon: #c6ffd8;
+}
+
+.process-pill-electron {
+    --pill-icon: #d4f6ff;
+}
+
+.process-pill-react {
+    --pill-icon: #a8efff;
+}
+
+.process-pill-next {
+    --pill-icon: #f4f7f7;
+}
+
+.process-pill-flutter {
+    --pill-icon: #b8fbff;
 }
 
 /* ========================================
@@ -720,6 +930,23 @@
 
     to {
         transform: translateX(calc(-50% - 0.5rem));
+    }
+}
+
+@keyframes process-rail-sweep {
+    from {
+        left: -12%;
+        opacity: 0;
+    }
+
+    10%,
+    80% {
+        opacity: 1;
+    }
+
+    to {
+        left: 88%;
+        opacity: 0;
     }
 }
 
@@ -840,8 +1067,32 @@
         padding: 0.8rem 1.05rem;
     }
 
+    .process-stack-shell {
+        gap: 0.45rem;
+    }
+
+    .process-stack-arrow {
+        width: 2.3rem;
+        height: 2.3rem;
+        font-size: 0.82rem;
+    }
+
     .process-stack::before,
     .process-stack::after {
         width: 2.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .process-stack-marquee,
+    .process-stack-rail::after {
+        animation: none;
+    }
+
+    .process-pill,
+    .process-pill::before,
+    .process-pill::after,
+    .process-pill i {
+        transition: none;
     }
 }

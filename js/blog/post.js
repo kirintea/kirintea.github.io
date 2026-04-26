@@ -1,6 +1,9 @@
 // post.js - 文章详情页面逻辑
+import { createPostMarkedRenderer } from './post-renderer.js';
+
 let currentPostMeta = null;
 let currentLang = 'en';
+let mermaidInitialized = false;
 
 async function initPost() {
     const params = new URLSearchParams(window.location.search);
@@ -28,7 +31,7 @@ async function loadPost(postDir) {
         const mdResponse = await fetch(`../../data/blog/posts/${postDir}/${currentLang}.md`);
         const mdContent = await mdResponse.text();
         
-        renderPost(mdContent);
+        await renderPost(mdContent);
     } catch (error) {
         console.error('Error loading post:', error);
         document.getElementById('post-content').innerHTML = `
@@ -43,7 +46,7 @@ async function switchLang(newLang) {
         const mdResponse = await fetch(`../../data/blog/posts/${currentPostMeta.dir}/${currentLang}.md`);
         const mdContent = await mdResponse.text();
         
-        renderPost(mdContent);
+        await renderPost(mdContent);
         
         const url = new URL(window.location);
         url.searchParams.set('lang', currentLang);
@@ -53,10 +56,43 @@ async function switchLang(newLang) {
     }
 }
 
-function renderPost(mdContent) {
+async function enhancePostContent(postContainer) {
+    const articleBody = postContainer.querySelector('.post-article-body');
+
+    if (articleBody && typeof Prism !== 'undefined') {
+        if (Prism.plugins?.autoloader) {
+            Prism.plugins.autoloader.languages_path = '../../vendor/prism/components/';
+        }
+
+        Prism.highlightAllUnder(articleBody);
+    }
+
+    const mermaidBlocks = articleBody?.querySelectorAll('.mermaid');
+
+    if (!mermaidBlocks || mermaidBlocks.length === 0 || typeof mermaid === 'undefined') {
+        return;
+    }
+
+    if (!mermaidInitialized) {
+        mermaid.initialize({
+            startOnLoad: false,
+            securityLevel: 'loose',
+            theme: 'dark'
+        });
+        mermaidInitialized = true;
+    }
+
+    await mermaid.run({
+        nodes: Array.from(mermaidBlocks)
+    });
+}
+
+async function renderPost(mdContent) {
     const postContainer = document.getElementById('post-content');
     
-    const htmlContent = marked.parse(mdContent);
+    const htmlContent = marked.parse(mdContent, {
+        renderer: createPostMarkedRenderer(currentPostMeta.dir)
+    });
     
     const tagsHTML = currentPostMeta.tags.map(tag => `<span class="post-article-tag">${tag}</span>`).join('');
     
@@ -86,6 +122,8 @@ function renderPost(mdContent) {
     });
     
     document.title = currentPostMeta.title[currentLang];
+
+    await enhancePostContent(postContainer);
 }
 
 document.addEventListener('DOMContentLoaded', initPost);

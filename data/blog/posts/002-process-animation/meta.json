@@ -1,0 +1,12 @@
+{
+  "date": "2026-04-26",
+  "tags": ["Animation", "CSS", "SVG", "Frontend"],
+  "title": {
+    "en": "Process Animation Effects",
+    "cn": "Process 动画效果"
+  },
+  "excerpt": {
+    "en": "Sharing the implementation of animation effects for the workflow demonstration section, including scroll-in animations, core rotation, process line flow, and other effects, with production process and technical points.",
+    "cn": "分享工作流程展示部分的动画效果实现，包括滚动入场、核心旋转、流程线流动等多种效果的制作过程和技术要点。"
+  }
+}
